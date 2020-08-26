@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ApiClient {
 
-    @GET("posts/")
+    @GET("users")
     fun groupList(): Call<ArrayList<Post>>
 }

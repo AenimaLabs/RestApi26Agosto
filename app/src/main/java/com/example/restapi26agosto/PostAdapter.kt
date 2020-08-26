@@ -26,15 +26,17 @@ class PostText (itemView: View) : RecyclerView.ViewHolder(itemView) {
         return PostText(view)
     }
 
+    override fun getItemCount(): Int {
+        return myPostAdapter.size
+    }
+
     override fun onBindViewHolder(holder: PostText, position: Int) {
         val post = myPostAdapter[position]
         holder.mId.text = post.id.toString()
         holder.mName.text = post.name
         holder.mEmail.text = post.email
-        holder.mPhone.text = post.phone.toString()
+        holder.mPhone.text = post.phone
     }
 
-    override fun getItemCount(): Int {
-        return myPostAdapter.size
-    }
+
 }

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RestApi26Agosto</string>
+    <string name="id">TextView</string>
+    <string name="name">TextView</string>
+    <string name="email">TextView</string>
+    <string name="phone">TextView</string>
 </resources>

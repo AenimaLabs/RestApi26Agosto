@@ -36,6 +36,9 @@ class PostText (itemView: View) : RecyclerView.ViewHolder(itemView) {
         holder.mName.text = post.name
         holder.mEmail.text = post.email
         holder.mPhone.text = post.phone
+
+
+
     }
 
 

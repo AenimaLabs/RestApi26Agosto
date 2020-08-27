@@ -24,16 +24,18 @@ class MainActivity : AppCompatActivity() {
 
         viewAdapter = PostAdapter(postList)
         postRecyclerView.adapter = viewAdapter
+
         loadApiDAta()
     }
 
     private fun loadApiDAta(){
         val service = ClientRetrofit.retrofitInstance()
         val call= service.groupList()
-        
-        call.enqueue(object : Callback<ArrayList<Post>> {
-            override fun onResponse(call: Call<ArrayList<Post>>, response: Response<ArrayList<Post>>) {
-               response.body()?.map {
+
+        call.enqueue(object : Callback<List<Post>> {
+            override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
+
+                response.body()?.map {
 
                    Log.wtf("MAIN", "${it.id} - ${it.name} - ${it.email} - ${it.phone}")
                         postList.add(it)
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 viewAdapter.notifyDataSetChanged()}
 
 
-            override fun onFailure(call: Call<ArrayList<Post>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Post>>, t: Throwable) {
                 Log.wtf("MAIN", "Error" + t)
                 Toast.makeText(applicationContext, "Error: cagó la weá", Toast.LENGTH_SHORT).show()
             }
